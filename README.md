@@ -1,14 +1,15 @@
-# Web Themer Chrome Extension
+# Darth Themer Chrome Extension
 
-A Manifest V3 Chrome extension that applies theme and font overrides to websites.
+A Manifest V3 Chrome extension that applies custom themes and style overrides to websites.
 
 ## Features
 
-- Per-site enable/disable toggle.
-- Theme presets (Ghostty Hotline Miami, Purple Rain, Windows 98, Slate, Paper).
-- Optional font family and font size overrides (leave blank to keep site defaults).
-- Optional custom CSS overrides.
+- Themes are **off by default** until enabled per-site or globally.
+- Built-in presets including `Rainbow Text`, `Neon Vommit`, `Purple Rain`, `Windows 98`, `Slate`, and `Paper`.
+- Rainbow mode colors letters in text with a repeating rainbow pattern and preserves the site's existing dark/light mode colors.
+- Per-site enable/disable, theme, font, size, and custom CSS controls.
 - Global defaults and site-specific overrides.
+- Custom Theme Builder in Options (colors, buttons, borders, radius, shadows, font defaults, rainbow colors, extra CSS).
 
 ## Load in Chrome
 
@@ -20,12 +21,12 @@ A Manifest V3 Chrome extension that applies theme and font overrides to websites
 ## Use
 
 1. Open a regular website tab.
-2. Click the **Web Themer** extension icon.
-3. Set theme/font values and click **Save for this site**.
-4. Use **Open global settings** to adjust defaults and manage saved site overrides.
+2. Click the **Darth Themer** extension icon.
+3. Enable the site and save settings.
+4. Open **Global settings** for custom theme creation and override management.
 
 ## Notes
 
 - Chrome internal pages (like `chrome://`), the Chrome Web Store, and some protected pages cannot be themed.
-- Aggressive site CSS can occasionally conflict with global overrides; use custom CSS to refine per site.
-- `Windows 98` is a full retro restyle; `Ghostty` and `Purple Rain` are palette-focused themes.
+- Aggressive site CSS can conflict with global overrides; use custom CSS to refine per site.
+- `Windows 98` is a full retro restyle, while palette-style themes focus mainly on colors.
