@@ -1,10 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "Web Themer",
+  "name": "Darth Themer",
   "description": "Apply custom themes and font overrides to websites with per-site controls.",
   "version": "1.0.0",
   "permissions": ["storage", "tabs", "scripting"],
   "host_permissions": ["<all_urls>"],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
@@ -13,7 +19,12 @@
     }
   ],
   "action": {
-    "default_title": "Web Themer",
+    "default_title": "Darth Themer",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    },
     "default_popup": "popup.html"
   },
   "options_page": "options.html"

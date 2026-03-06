@@ -1,4 +1,4 @@
-Hey all# Darth Themer Chrome Extension
+# Darth Themer Chrome Extension
 
 A Manifest V3 Chrome extension that applies custom themes and style overrides to websites.
 

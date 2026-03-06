@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Themer Settings</title>
+    <title>Darth Themer Settings</title>
     <link rel="stylesheet" href="options.css" />
   </head>
   <body>
     <main class="layout">
       <section class="card">
-        <h1>Global Settings</h1>
+        <h1>Darth Themer Control</h1>
+        <p class="caption">Behavior rule: site override first, otherwise global ON/OFF setting.</p>
 
         <label class="field checkbox">
           <input id="globalEnabled" type="checkbox" />
@@ -28,7 +29,7 @@
 
         <label class="field">
           Font size
-          <input id="globalFontSize" type="number" min="10" max="26" step="1" placeholder="Default" />
+          <input id="globalFontSize" type="number" min="10" max="32" step="1" placeholder="Default" />
         </label>
 
         <label class="field">
@@ -41,6 +42,114 @@
         </div>
 
         <p id="status" class="status" aria-live="polite"></p>
+      </section>
+
+      <section class="card">
+        <h2>Custom Theme Builder</h2>
+        <p class="caption">Create your own themes with colors, borders, button styles, fonts, and optional extra CSS.</p>
+
+        <input id="customThemeId" type="hidden" />
+
+        <div class="builder-grid">
+          <label class="field">
+            Theme name
+            <input id="customName" type="text" placeholder="My Neon Theme" />
+          </label>
+
+          <label class="field">
+            Style mode
+            <select id="customStyle">
+              <option value="palette">Palette (modern)</option>
+              <option value="classic">Classic (full override)</option>
+              <option value="rainbow">Rainbow text mode</option>
+            </select>
+          </label>
+
+          <label class="field">
+            Page background
+            <input id="customBg" type="color" value="#1f2937" />
+          </label>
+
+          <label class="field">
+            Surface background
+            <input id="customSurface" type="color" value="#273449" />
+          </label>
+
+          <label class="field">
+            Text color
+            <input id="customText" type="color" value="#e6edf6" />
+          </label>
+
+          <label class="field">
+            Border color
+            <input id="customBorder" type="color" value="#3e4f69" />
+          </label>
+
+          <label class="field">
+            Link color
+            <input id="customLink" type="color" value="#8cb8ff" />
+          </label>
+
+          <label class="field">
+            Input background
+            <input id="customInputBg" type="color" value="#17212f" />
+          </label>
+
+          <label class="field">
+            Button background
+            <input id="customButtonBg" type="color" value="#273449" />
+          </label>
+
+          <label class="field">
+            Button text
+            <input id="customButtonText" type="color" value="#e6edf6" />
+          </label>
+
+          <label class="field">
+            Button border
+            <input id="customButtonBorder" type="color" value="#3e4f69" />
+          </label>
+
+          <label class="field">
+            Border radius
+            <input id="customRadius" type="text" value="6px" />
+          </label>
+
+          <label class="field">
+            Box shadow
+            <input id="customShadow" type="text" value="none" />
+          </label>
+
+          <label class="field">
+            Default font family
+            <input id="customFontFamily" type="text" placeholder="Optional" />
+          </label>
+
+          <label class="field">
+            Default font size
+            <input id="customFontSize" type="number" min="10" max="32" step="1" placeholder="Default" />
+          </label>
+
+          <label class="field wide">
+            Rainbow colors (comma-separated, optional)
+            <input id="customRainbowColors" type="text" placeholder="#ff0000, #ff7f00, #ffd700, #00c853, #00b0ff, #304ffe, #d500f9" />
+          </label>
+
+          <label class="field wide">
+            Extra CSS
+            <textarea id="customExtraCss" rows="6" placeholder="Optional CSS for this theme"></textarea>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button id="saveCustomTheme" type="button">Save custom theme</button>
+          <button id="clearCustomTheme" type="button" class="secondary">Clear form</button>
+        </div>
+
+        <p id="customStatus" class="status" aria-live="polite"></p>
+
+        <h3>Saved Custom Themes</h3>
+        <div id="customThemes"></div>
       </section>
 
       <section class="card">
