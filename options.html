@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Themer Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="card">
+        <h1>Global Settings</h1>
+
+        <label class="field checkbox">
+          <input id="globalEnabled" type="checkbox" />
+          <span>Enable themes globally by default</span>
+        </label>
+
+        <label class="field">
+          Theme
+          <select id="globalTheme"></select>
+        </label>
+
+        <label class="field">
+          Font family
+          <input id="globalFontFamily" type="text" placeholder="Leave blank to keep site font" />
+        </label>
+
+        <label class="field">
+          Font size
+          <input id="globalFontSize" type="number" min="10" max="26" step="1" placeholder="Default" />
+        </label>
+
+        <label class="field">
+          Custom CSS (applies unless site override is set)
+          <textarea id="customCss" rows="8" placeholder="Optional global CSS overrides"></textarea>
+        </label>
+
+        <div class="actions">
+          <button id="save" type="button">Save global settings</button>
+        </div>
+
+        <p id="status" class="status" aria-live="polite"></p>
+      </section>
+
+      <section class="card">
+        <h2>Site Overrides</h2>
+        <p class="caption">Each saved site can have its own enable toggle, theme, font, and CSS.</p>
+        <div id="overrides"></div>
+      </section>
+    </main>
+
+    <script src="theme-presets.js"></script>
+    <script src="settings.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

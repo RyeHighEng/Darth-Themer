@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Themer</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <h1>Web Themer</h1>
+      <p id="siteLabel" class="site">Site: -</p>
+
+      <label class="field checkbox">
+        <input type="checkbox" id="enabled" />
+        <span>Enable on this site</span>
+      </label>
+
+      <label class="field">
+        Theme
+        <select id="theme"></select>
+      </label>
+
+      <label class="field">
+        Font family
+        <input id="fontFamily" type="text" placeholder="Leave blank to keep site font" />
+      </label>
+
+      <label class="field">
+        Font size
+        <input id="fontSize" type="number" min="10" max="26" step="1" placeholder="Default" />
+      </label>
+
+      <label class="field">
+        Custom CSS
+        <textarea id="customCss" rows="4" placeholder="Optional site-only CSS overrides"></textarea>
+      </label>
+
+      <div class="actions">
+        <button id="save" type="button">Save for this site</button>
+        <button id="reset" type="button" class="secondary">Use global defaults</button>
+      </div>
+
+      <p id="status" class="status" aria-live="polite"></p>
+      <a class="options-link" href="options.html" target="_blank" rel="noreferrer">Open global settings</a>
+    </main>
+
+    <script src="theme-presets.js"></script>
+    <script src="settings.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 12px;
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  width: 320px;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.panel {
+  display: grid;
+  gap: 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.site {
+  margin: 0;
+  font-size: 12px;
+  color: #4b5563;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  border: 1px solid #9ca3af;
+  border-radius: 6px;
+  padding: 7px;
+  background: white;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  border: 1px solid #111827;
+  background: #111827;
+  color: white;
+  border-radius: 6px;
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: white;
+  color: #111827;
+}
+
+.status {
+  margin: 0;
+  font-size: 12px;
+  min-height: 16px;
+  color: #0f766e;
+}
+
+.options-link {
+  font-size: 12px;
+}
