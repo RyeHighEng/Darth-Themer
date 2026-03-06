@@ -1,4 +1,4 @@
-# Darth Themer Chrome Extension
+![Logo](Gemini_Generated_Image_9v3e7q9v3e7q9v3e.png)# Darth Themer Chrome Extension
 
 A Manifest V3 Chrome extension that applies custom themes and style overrides to websites.
 
