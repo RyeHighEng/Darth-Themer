@@ -1,14 +1,14 @@
 (() => {
   const STORAGE_KEY = "webThemerSettings";
 
-  function normalizeOverride(rawOverride, presets, catalog) {
+  function normalizeOverride(rawOverride, presets) {
     if (!rawOverride || typeof rawOverride !== "object") {
       return null;
     }
 
     return {
       enabled: Boolean(rawOverride.enabled),
-      theme: presets.getThemeKey(rawOverride.theme, catalog),
+      theme: presets.getThemeKey(rawOverride.theme),
       fontFamily: presets.sanitizeFontFamily(rawOverride.fontFamily),
       fontSize: presets.clampFontSize(rawOverride.fontSize),
       customCss: typeof rawOverride.customCss === "string" ? rawOverride.customCss : ""
@@ -19,14 +19,11 @@
     const defaults = presets.DEFAULT_SETTINGS;
     const raw = rawSettings && typeof rawSettings === "object" ? rawSettings : {};
 
-    const customThemes = presets.normalizeCustomThemes(raw.customThemes);
-    const catalog = presets.getThemeCatalog(customThemes);
-
     const siteOverrides = {};
     const rawOverrides = raw.siteOverrides && typeof raw.siteOverrides === "object" ? raw.siteOverrides : {};
 
     for (const [hostname, override] of Object.entries(rawOverrides)) {
-      const normalized = normalizeOverride(override, presets, catalog);
+      const normalized = normalizeOverride(override, presets);
       if (normalized) {
         siteOverrides[hostname] = normalized;
       }
@@ -34,11 +31,10 @@
 
     return {
       globalEnabled: typeof raw.globalEnabled === "boolean" ? raw.globalEnabled : defaults.globalEnabled,
-      globalTheme: presets.getThemeKey(raw.globalTheme, catalog),
+      globalTheme: presets.getThemeKey(raw.globalTheme),
       globalFontFamily: presets.sanitizeFontFamily(raw.globalFontFamily),
       globalFontSize: presets.clampFontSize(raw.globalFontSize),
       customCss: typeof raw.customCss === "string" ? raw.customCss : defaults.customCss,
-      customThemes,
       siteOverrides
     };
   }
@@ -55,14 +51,11 @@
   }
 
   function resolveEffectiveSettings(settings, hostname, presets) {
-    const normalized = normalizeSettings(settings, presets);
-    const catalog = presets.getThemeCatalog(normalized.customThemes);
-
-    const siteOverride = normalized.siteOverrides[hostname];
+    const siteOverride = settings.siteOverrides[hostname];
     if (siteOverride) {
       return {
         enabled: siteOverride.enabled,
-        theme: presets.getThemeKey(siteOverride.theme, catalog),
+        theme: presets.getThemeKey(siteOverride.theme),
         fontFamily: presets.sanitizeFontFamily(siteOverride.fontFamily),
         fontSize: presets.clampFontSize(siteOverride.fontSize),
         customCss: typeof siteOverride.customCss === "string" ? siteOverride.customCss : "",
@@ -71,19 +64,18 @@
     }
 
     return {
-      enabled: Boolean(normalized.globalEnabled),
-      theme: presets.getThemeKey(normalized.globalTheme, catalog),
-      fontFamily: presets.sanitizeFontFamily(normalized.globalFontFamily),
-      fontSize: presets.clampFontSize(normalized.globalFontSize),
-      customCss: typeof normalized.customCss === "string" ? normalized.customCss : "",
+      enabled: Boolean(settings.globalEnabled),
+      theme: presets.getThemeKey(settings.globalTheme),
+      fontFamily: presets.sanitizeFontFamily(settings.globalFontFamily),
+      fontSize: presets.clampFontSize(settings.globalFontSize),
+      customCss: typeof settings.customCss === "string" ? settings.customCss : "",
       source: "global"
     };
   }
 
   function upsertSiteOverride(settings, hostname, override, presets) {
     const next = normalizeSettings(settings, presets);
-    const catalog = presets.getThemeCatalog(next.customThemes);
-    next.siteOverrides[hostname] = normalizeOverride(override, presets, catalog);
+    next.siteOverrides[hostname] = normalizeOverride(override, presets);
     return next;
   }
 

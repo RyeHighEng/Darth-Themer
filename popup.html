@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Darth Themer</title>
+    <title>Web Themer</title>
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
     <main class="panel">
-      <h1>Darth Themer</h1>
+      <h1>Web Themer</h1>
       <p id="siteLabel" class="site">Site: -</p>
 
       <label class="field checkbox">
@@ -28,7 +28,7 @@
 
       <label class="field">
         Font size
-        <input id="fontSize" type="number" min="10" max="32" step="1" placeholder="Default" />
+        <input id="fontSize" type="number" min="10" max="26" step="1" placeholder="Default" />
       </label>
 
       <label class="field">
@@ -41,12 +41,6 @@
         <button id="reset" type="button" class="secondary">Use global defaults</button>
       </div>
 
-      <div class="actions">
-        <button id="enableAll" type="button">Turn ON all websites</button>
-        <button id="disableAll" type="button" class="secondary">Turn OFF all websites</button>
-      </div>
-
-      <p id="globalState" class="site"></p>
       <p id="status" class="status" aria-live="polite"></p>
       <a class="options-link" href="options.html" target="_blank" rel="noreferrer">Open global settings</a>
     </main>
