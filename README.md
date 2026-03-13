@@ -1,3 +1,5 @@
+![Logo](logo.png)
+
 # Web Themer Chrome Extension
 
 A Manifest V3 Chrome extension that applies theme and font overrides to websites.
